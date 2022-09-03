@@ -1,0 +1,7 @@
+.photo-gallery__caption {
+  display: flex;
+  margin: 19px auto 31px;
+  max-width: 240px;
+  justify-content: space-between;
+  align-items: center;
+}

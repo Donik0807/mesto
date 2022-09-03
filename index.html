@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+</head>
+<body class="page">
+    <header class="header">
+        <img src="images/header__logo.svg" alt="Mesto-russia" class="header__logo">
+        <hr class="header__line">
+    </header>
+    <main class="content">
+        <section class="profile">
+            <img src="images/profile-pic.jpg" alt="Изображение профиля" class="profile__avatar">
+            <div class="profile__profile-info">
+                <p class="profile__name">
+                    Жак-Ив Кусто
+                </p>
+                <button class="profile__edit-button button-animation" type="button">
+
+                </button>
+                <p class="profile__status">
+                    Исследователь океана
+                </p>
+            </div>
+            <button class="profile__add-button button-animation">
+            </button>
+        </section>
+        <section class="photo-gallery">
+            <figure class="photo-gallery__element">
+                <img src="images/temple.jpg" alt="Заброшенный храм" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Карачаево</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>
+            <figure class="photo-gallery__element">
+                <img src="images/elbrus.jpg" alt="Гора Эльбрус" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Гора Эльбрус</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>
+            <figure class="photo-gallery__element">
+                <img src="images/dombay.jpg" alt="Домбай" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Домбай</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>
+            <figure class="photo-gallery__element">
+                <img src="images/castle.jpg" alt="Замок" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Нойшванштайн</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>
+            <figure class="photo-gallery__element">
+                <img src="images/dunes.jpg" alt="Пустыня" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Сахара</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>
+            <figure class="photo-gallery__element">
+                <img src="images/road.jpg" alt="Пустая дорога" class="photo-gallery__picture">
+                <figcaption class="photo-gallery__caption">
+                    <p class="photo-gallery__text">Лесная дорога</p>
+                    <button class="photo-gallery__like-button button-animation"></button>
+                </figcaption>
+            </figure>      
+        </section>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+        </footer>
+    </main>
+    <div class="popup">
+        <form class="popup__container">
+            <p class="popup__text">Редактировать профиль</p>
+            <input type="text" class="popup__text-input popup__name" placeholder="Имя" name="name" value="Жак-Ив Кусто">
+            <input type="text" class="popup__text-input popup__about" placeholder="О себе" name="about" value="Исследователь океана">
+            <button class="popup__save-button button-animation" type="submit">Сохранить</button>
+            <button class="popup__close-button button-animation" type="button"></button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
