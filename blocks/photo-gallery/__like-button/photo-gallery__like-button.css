@@ -10,10 +10,5 @@
 }
 
 .photo-gallery__like-button:hover {
-  opacity: 0.6;
-}
-
-.photo-gallery__like-button:active {
-  background-image: url(../../../images/like-black.svg);
-  opacity: 1;
+  opacity: 0.5;
 }

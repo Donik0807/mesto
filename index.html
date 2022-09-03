@@ -10,82 +10,80 @@
 <body class="page">
     <header class="header">
         <img src="images/header__logo.svg" alt="Место" class="header__logo">
-        <hr class="header__line">
     </header>
     <main class="content">
         <section class="profile">
             <img src="images/profile-pic.jpg" alt="Изображение профиля" class="profile__avatar">
             <div class="profile__profile-info">
-                <p class="profile__name">
-                    Жак-Ив Кусто
-                </p>
-                <button class="profile__edit-button button-animation" type="button">
-
-                </button>
-                <p class="profile__status">
-                    Исследователь океана
-                </p>
+                <div class="profile__row">
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button button-animation" type="button" aria-label="Редактировать">
+                    </button>
+                </div>
+                <p class="profile__status">Исследователь океана</p>
             </div>
-            <button class="profile__add-button button-animation">
+            <button class="profile__add-button button-animation" type="button" aria-label="Добавить">
             </button>
         </section>
         <section class="photo-gallery">
             <figure class="photo-gallery__element">
                 <img src="images/temple.jpg" alt="Заброшенный храм" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Карачаево</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Карачаевск</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>
             <figure class="photo-gallery__element">
                 <img src="images/elbrus.jpg" alt="Гора Эльбрус" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Гора Эльбрус</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Гора Эльбрус</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>
             <figure class="photo-gallery__element">
                 <img src="images/dombay.jpg" alt="Домбай" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Домбай</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Домбай</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>
             <figure class="photo-gallery__element">
                 <img src="images/castle.jpg" alt="Замок" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Нойшванштайн</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Нойшванштайн</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>
             <figure class="photo-gallery__element">
                 <img src="images/dunes.jpg" alt="Пустыня" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Сахара</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Сахара</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>
             <figure class="photo-gallery__element">
                 <img src="images/road.jpg" alt="Пустая дорога" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <p class="photo-gallery__text">Лесная дорога</p>
-                    <button class="photo-gallery__like-button button-animation"></button>
+                    <h2 class="photo-gallery__text">Лесная дорога</h2>
+                    <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
             </figure>      
         </section>
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-        </footer>
     </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
     <div class="popup">
-        <form class="popup__container">
-            <p class="popup__text">Редактировать профиль</p>
-            <input type="text" class="popup__text-input popup__name" placeholder="Имя" name="name" value="Жак-Ив Кусто">
-            <input type="text" class="popup__text-input popup__about" placeholder="О себе" name="about" value="Исследователь океана">
-            <button class="popup__save-button button-animation" type="submit">Сохранить</button>
-            <button class="popup__close-button button-animation" type="button"></button>
-        </form>
+        <div class="popup__container">
+            <form class="popup__form" name="personal-info">
+                <h3 class="popup__text">Редактировать профиль</h3>
+                <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="Имя" name="name">
+                <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="О себе" name="about">
+                <button class="popup__save-button button-animation" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close-button button-animation" type="button" aria-labe="Закрыть"></button>
+        </div>
     </div>
-    <script src="index.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
 </html>
