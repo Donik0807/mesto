@@ -24,8 +24,8 @@ closeButton.addEventListener('click', closePopup);
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
-    document.querySelector('.profile__name').textContent = nameInput.value;
-    document.querySelector('.profile__status').textContent = aboutInput.value;
+    profileName.textContent = nameInput.value;
+    profileAbout.textContent = aboutInput.value;
     closePopup();
 }
 
