@@ -29,6 +29,7 @@
 @import url(../blocks/photo-gallery/__caption/photo-gallery__caption.css);
 @import url(../blocks/photo-gallery/__like-button/photo-gallery__like-button.css);
 @import url(../blocks/photo-gallery/__like-button/_active/photo-gallery__like-button_active.css);
+@import url(../blocks/photo-gallery/__delete/photo-gallery__delete.css);
 /* photo-gallery */
 
 /* footer */

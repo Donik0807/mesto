@@ -27,63 +27,72 @@
         </section>
         <section class="photo-gallery">
             <figure class="photo-gallery__element">
-                <img src="images/temple.jpg" alt="Заброшенный храм" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Карачаевск</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>
             <figure class="photo-gallery__element">
-                <img src="images/elbrus.jpg" alt="Гора Эльбрус" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Гора Эльбрус</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>
             <figure class="photo-gallery__element">
-                <img src="images/dombay.jpg" alt="Домбай" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Домбай</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>
             <figure class="photo-gallery__element">
-                <img src="images/castle.jpg" alt="Замок" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Нойшванштайн</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>
             <figure class="photo-gallery__element">
-                <img src="images/dunes.jpg" alt="Пустыня" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Сахара</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>
             <figure class="photo-gallery__element">
-                <img src="images/road.jpg" alt="Пустая дорога" class="photo-gallery__picture">
+                <img src="" alt="" class="photo-gallery__picture">
                 <figcaption class="photo-gallery__caption">
-                    <h2 class="photo-gallery__text">Лесная дорога</h2>
+                    <h2 class="photo-gallery__text"></h2>
                     <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
                 </figcaption>
+                <button class="photo-gallery__delete button-animation"></button>
             </figure>      
         </section>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
-        <div class="popup__container">
-            <form class="popup__form" name="personal-info">
-                <h3 class="popup__text">Редактировать профиль</h3>
-                <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="Имя" name="name">
-                <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="О себе" name="about">
-                <button class="popup__save-button button-animation" type="submit" aria-label="Сохранить">Сохранить</button>
-            </form>
-            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
+    <template id="popup">
+        <div class="popup">
+            <div class="popup__container">
+                <form class="popup__form" name="personal-info">
+                    <h3 class="popup__text"></h3>
+                    <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="" name="name">
+                    <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="" name="about">
+                    <button class="popup__save-button button-animation" type="submit" aria-label="Сохранить"></button>
+                </form>
+                <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
+            </div>
         </div>
-    </div>
-    <script src="scripts/index.js"></script>
+    </template>
+    <script src="scripts/popup.js"></script>
+    <script src="scripts/cards.js"></script>
 </body>
 </html>
