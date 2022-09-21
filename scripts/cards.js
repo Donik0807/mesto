@@ -26,12 +26,15 @@ const initialCards = [
 ];
 
 // Код для загрузки начальных изображений и их имен (также атрибут alt)
-const pictures = document.querySelectorAll('.photo-gallery__picture');
-const cardNames = document.querySelectorAll('.photo-gallery__text');
+const galleryTemplate = document.querySelector('#photo-gallery__element').content;
 
-initialCards.forEach((card, index) => {
-  pictures[index].src = card.link;
-  pictures[index].alt = card.name;
-  cardNames[index].textContent = card.name;
+initialCards.forEach(card => {
+  const galleryItem = galleryTemplate.querySelector('.photo-gallery__element').cloneNode(true);
+  const galleryPicture = galleryItem.querySelector('.photo-gallery__picture');
+  galleryPicture.src = card.link;
+  galleryPicture.alt = card.name;
+  galleryItem.querySelector('.photo-gallery__text').textContent = card.name;
+  document.querySelector('.photo-gallery').append(galleryItem);
 })
 // end
+
