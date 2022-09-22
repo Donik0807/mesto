@@ -42,7 +42,7 @@ function closePopup(popupArg) {
 //Создание попапа для картинки
 const picturePopup = popupTemplate.querySelector('.popup').cloneNode(true);
 
-const openedPicture = document.createElement('img'); //картинка которая будет проасматриваться
+const openedPicture = document.createElement('img'); //картинка, которая будет просматриваться
 openedPicture.classList.add('photo-gallery__picture_opened');
 picturePopup.querySelector('.popup__form').replaceWith(openedPicture);
 
