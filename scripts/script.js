@@ -82,12 +82,12 @@ function createCard(cardName, cardLink) {
   galleryItem.querySelector('.photo-gallery__text').textContent = cardName;
 
   // Функция удаления картинки
-  galleryItem.querySelector('.photo-gallery__delete').addEventListener('click', function(evt) {
+  galleryItem.querySelector('.photo-gallery__delete').addEventListener('click', (evt) => {
     evt.target.closest('.photo-gallery__element').remove();
   });
 
   // Функция кнопки лайка
-  galleryItem.querySelector('.photo-gallery__like-button').addEventListener('click', function(evt) {
+  galleryItem.querySelector('.photo-gallery__like-button').addEventListener('click', (evt) => {
     evt.target.classList.toggle('photo-gallery__like-button_active');
   });
 
