@@ -41,19 +41,35 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <template id="popup">
-        <div class="popup">
-            <div class="popup__container">
-                <form class="popup__form" name="">
-                    <h3 class="popup__text"></h3>
-                    <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="" name="" required>
-                    <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="" name="" required>
-                    <button class="popup__save-button button-animation" type="submit" aria-label=""></button>
-                </form>
-                <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
-            </div>
+    <div class="popup popup_edit">
+        <div class="popup__container popup__container_modal">
+            <form class="popup__form" name="personal-info">
+                <h3 class="popup__text">Редактировать профиль</h3>
+                <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="Имя" name="name" required>
+                <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="О себе" name="about" required>
+                <button class="popup__save-button button-animation" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
         </div>
-    </template>
+    </div>
+    <div class="popup popup_add-card">
+        <div class="popup__container popup__container_modal">
+            <form class="popup__form" name="card-info">
+                <h3 class="popup__text">Новое место</h3>
+                <input type="text" class="popup__text-input popup__text-input_type_name" placeholder="Название" name="title" required>
+                <input type="text" class="popup__text-input popup__text-input_type_about" placeholder="Ссылка на картинку" name="link" required>
+                <button class="popup__save-button button-animation" type="submit" aria-label="Создать">Создать</button>
+            </form>
+            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
+        </div>
+    </div>
+    <div class="popup popup_picture">
+        <div class="popup__container">
+            <img src="images/castle.jpg" alt="замок" class="popup__image">
+            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
+            <p class="popup__caption"></p>
+        </div>
+    </div>
     <script src="scripts/script.js"></script>
 </body>
 </html>

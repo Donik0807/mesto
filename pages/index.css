@@ -30,7 +30,6 @@
 @import url(../blocks/photo-gallery/__like-button/photo-gallery__like-button.css);
 @import url(../blocks/photo-gallery/__like-button/_active/photo-gallery__like-button_active.css);
 @import url(../blocks/photo-gallery/__delete/photo-gallery__delete.css);
-@import url(../blocks/photo-gallery/__picture/_opened/photo-gallery__picture_opened.css);
 /* photo-gallery */
 
 /* footer */
@@ -47,4 +46,6 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/_modal/popup__container_modal.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__caption/popup__caption.css);
 /* popup */
