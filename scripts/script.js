@@ -29,12 +29,23 @@ const photoGallery = document.querySelector('.photo-gallery');
 
 const galleryTemplate = document.querySelector('#photo-gallery__element').content; //содержимое шаблона карточки
 
+// функция для закрытия окна по кнопке Esc
+function setEsc(popup) {
+  return function(evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  }
+}
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  popup.addEventListener('keydown', setEsc(popup));
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('keydown', setEsc(popup));
 }
 
 //Создание попапа для картинки
@@ -93,7 +104,6 @@ initialCards.forEach(function(card) {
 
 
 // Модальное окно редактирования профиля
-
 const popupEditProfile = document.querySelector('.popup_edit');
 
 const btnCloseEditProfilePopup = popupEditProfile.querySelector('.popup__close-button'); //переменная для кнопки закрытия
@@ -111,10 +121,29 @@ const btnOpenEditProfilePopup = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name'); 
 const profileAbout = document.querySelector('.profile__status');
 
+function setProfileInputs() {
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+}
+
+setProfileInputs();
+
+popupEditProfile.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popupEditProfile);
+  }
+})
+
 btnOpenEditProfilePopup.addEventListener('click', () => {
-    openPopup(popupEditProfile);
-    nameInput.value = profileName.textContent;
-    aboutInput.value = profileAbout.textContent;
+  let editInputs = Array.from(formEditProfile.querySelectorAll('.popup__text-input'));
+  editInputs.forEach(editInput => {
+    if (editInput.classList.contains('popup__text-input_invalid')) {
+        hideError(editInput, formEditProfile, popupForm);
+    }
+  })
+  openPopup(popupEditProfile);
+  setProfileInputs();
+  toggleButtonState(formEditProfile, editInputs, popupForm);
 });
 
 btnCloseEditProfilePopup.addEventListener('click', function() {
@@ -145,10 +174,21 @@ const cardSave = cardPopup.querySelector('.popup__save-button'); // кнопка
 
 const btnOpenCardPopup = document.querySelector('.profile__add-button');
 
+cardPopup.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popupEditProfile);
+  }
+})
+
 btnOpenCardPopup.addEventListener('click', function() {
+    let cardInputs = Array.from(cardForm.querySelectorAll('.popup__text-input'));
+    cardInputs.forEach(cardInput => {
+      if (cardInput.classList.contains('popup__text-input_invalid')) {
+        hideError(cardInput, cardForm, popupForm);
+      }
+    })
     openPopup(cardPopup);
-    cardNameInput.value = '';
-    cardLinkInput.value = '';
+    cardForm.reset();
 });
 
 btnCloseCardPopup.addEventListener('click', function() {
@@ -160,4 +200,3 @@ cardForm.addEventListener('submit', function(evt) {
     photoGallery.prepend(createCard(cardNameInput.value, cardLinkInput.value));
     closePopup(cardPopup);
 })
-
