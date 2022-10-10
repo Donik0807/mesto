@@ -59,6 +59,12 @@ picturePopup.querySelector('.popup__close-button').addEventListener('click', fun
   closePopup(picturePopup);
 });
 
+picturePopup.addEventListener('click', function(evt) {
+  if (evt.target.classList.contains('popup')) {
+    closePopup(picturePopup);
+  }
+});
+
 //функция для просмотра картинки (в качестве аргумента передается картинка, по которой произошел клик)
 function openPicture(picture) {
   openedPicture.src = picture.src;
