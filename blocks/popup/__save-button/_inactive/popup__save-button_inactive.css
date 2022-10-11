@@ -2,4 +2,6 @@
   opacity: .2;
   transition: none;
   cursor: initial;
+  background-color: white;
+  color: #000000;
 }

@@ -30,22 +30,21 @@ const photoGallery = document.querySelector('.photo-gallery');
 const galleryTemplate = document.querySelector('#photo-gallery__element').content; //содержимое шаблона карточки
 
 // функция для закрытия окна по кнопке Esc
-function setEsc(popup) {
-  return function(evt) {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
-    }
+function setEsc(evt) {
+  if (evt.key == 'Escape') {
+    console.log(evt.key);
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
   }
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener('keydown', setEsc(popup));
+  document.addEventListener('keydown', setEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('keydown', setEsc(popup));
+  document.removeEventListener('keydown', setEsc);
 }
 
 //Создание попапа для картинки
@@ -55,16 +54,6 @@ const openedPicture = picturePopup.querySelector('.popup__image');
 
 const popupCaption = picturePopup.querySelector('.popup__caption');
 
-picturePopup.querySelector('.popup__close-button').addEventListener('click', function() {
-  closePopup(picturePopup);
-});
-
-picturePopup.addEventListener('click', function(evt) {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(picturePopup);
-  }
-});
-
 //функция для просмотра картинки (в качестве аргумента передается картинка, по которой произошел клик)
 function openPicture(picture) {
   openedPicture.src = picture.src;
@@ -72,10 +61,6 @@ function openPicture(picture) {
   popupCaption.textContent = picture.alt;
   openPopup(picturePopup);
 }
-
-picturePopup.querySelector('.popup__close-button').addEventListener('clink', () => {
-  closePopup(picturePopup);
-});
 // END
 
 // функция создания карточки
@@ -112,48 +97,32 @@ initialCards.forEach(function(card) {
 // Модальное окно редактирования профиля
 const popupEditProfile = document.querySelector('.popup_edit');
 
-const btnCloseEditProfilePopup = popupEditProfile.querySelector('.popup__close-button'); //переменная для кнопки закрытия
-
 const formEditProfile = popupEditProfile.querySelector('.popup__form'); //форма редактирования профиля
 
 const nameInput = popupEditProfile.querySelector('.popup__text-input_type_name'); //переменная поля ввода имени
 
 const aboutInput = popupEditProfile.querySelector('.popup__text-input_type_about'); //переменная поля ввода статуса
-
-const btnSubmitEditProfie = popupEditProfile.querySelector('.popup__save-button'); //кнопка сохранения профиля
 // end
 
 const btnOpenEditProfilePopup = document.querySelector('.profile__edit-button'); //переменная для кнопки редактирования
 const profileName = document.querySelector('.profile__name'); 
 const profileAbout = document.querySelector('.profile__status');
 
-function setProfileInputs() {
+function setProfilePopupInputs() {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
 }
 
-setProfileInputs();
-
-popupEditProfile.addEventListener('click', (evt) => {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupEditProfile);
-  }
-})
-
 btnOpenEditProfilePopup.addEventListener('click', () => {
-  let editInputs = Array.from(formEditProfile.querySelectorAll('.popup__text-input'));
+  const editInputs = Array.from(formEditProfile.querySelectorAll('.popup__text-input'));
   editInputs.forEach(editInput => {
     if (editInput.classList.contains('popup__text-input_invalid')) {
-        hideError(editInput, formEditProfile, popupForm);
+        hideError(editInput, formEditProfile, popupValidate);
     }
   })
   openPopup(popupEditProfile);
-  setProfileInputs();
-  toggleButtonState(formEditProfile, editInputs, popupForm);
-});
-
-btnCloseEditProfilePopup.addEventListener('click', function() {
-    closePopup(popupEditProfile);
+  setProfilePopupInputs();
+  toggleButtonState(formEditProfile, editInputs, popupValidate);
 });
 
 function editFormSubmit(evt) {
@@ -168,8 +137,6 @@ formEditProfile.addEventListener('submit', editFormSubmit);
 // Модальное окно добавления карточки
 const cardPopup = document.querySelector('.popup_add-card');
 
-const btnCloseCardPopup = cardPopup.querySelector('.popup__close-button'); //кнопка закрытия 
-
 const cardForm = cardPopup.querySelector('.popup__form'); // форма добавления карточки
 
 const cardNameInput = cardPopup.querySelector('.popup__text-input_type_name'); //поле ввода названия карточки
@@ -180,25 +147,16 @@ const cardSave = cardPopup.querySelector('.popup__save-button'); // кнопка
 
 const btnOpenCardPopup = document.querySelector('.profile__add-button');
 
-cardPopup.addEventListener('click', (evt) => {
-  if (evt.target.classList.contains('popup')) {
-    closePopup(popupEditProfile);
-  }
-})
-
 btnOpenCardPopup.addEventListener('click', function() {
-    let cardInputs = Array.from(cardForm.querySelectorAll('.popup__text-input'));
+    const cardInputs = Array.from(cardForm.querySelectorAll('.popup__text-input'));
     cardInputs.forEach(cardInput => {
       if (cardInput.classList.contains('popup__text-input_invalid')) {
-        hideError(cardInput, cardForm, popupForm);
+        hideError(cardInput, cardForm, popupValidate);
       }
     })
     openPopup(cardPopup);
     cardForm.reset();
-});
-
-btnCloseCardPopup.addEventListener('click', function() {
-    closePopup(cardPopup);
+    toggleButtonState(cardForm, cardInputs, popupValidate);
 });
 
 cardForm.addEventListener('submit', function(evt) {
@@ -206,3 +164,20 @@ cardForm.addEventListener('submit', function(evt) {
     photoGallery.prepend(createCard(cardNameInput.value, cardLinkInput.value));
     closePopup(cardPopup);
 })
+
+// Функция, устанавливающая слушатели для закрытия попапов
+function setClosePopupsListeners() {
+  const popupsList = Array.from(document.querySelectorAll('.popup'));
+  popupsList.forEach(popup => {
+    popup.addEventListener('click', evt => {
+      if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
+        closePopup(popup);
+      }
+    })
+  })
+}
+
+setClosePopupsListeners();
+
+
+
