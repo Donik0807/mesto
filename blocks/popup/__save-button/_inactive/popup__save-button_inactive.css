@@ -5,3 +5,7 @@
   background-color: white;
   color: #000000;
 }
+
+.popup__save-button_inactive:hover {
+  opacity: .2;
+}

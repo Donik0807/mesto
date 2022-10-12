@@ -32,8 +32,7 @@ const galleryTemplate = document.querySelector('#photo-gallery__element').conten
 // функция для закрытия окна по кнопке Esc
 function setEsc(evt) {
   if (evt.key == 'Escape') {
-    console.log(evt.key);
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    closePopup(document.querySelector('.popup_opened'));
   }
 }
 

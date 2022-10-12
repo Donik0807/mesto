@@ -5,7 +5,6 @@ const popupValidate = {
   errorActiveClass: 'popup__text-input-error_active',
   saveButtonClass: 'popup__save-button',
   saveButtonInactiveClass: 'popup__save-button_inactive',
-  saveButtonActiveClass: 'popup__save-button_active',
 }
 
 function showError(inputElement, formElement, objValidate, errorMessage) {
@@ -39,13 +38,11 @@ function hasInvalidInput(inputList) {
 function disableButton(formButton, objValidate) {
   formButton.classList.add(objValidate.saveButtonInactiveClass);
   formButton.setAttribute('disabled', true);
-  formButton.classList.remove(objValidate.saveButtonActiveClass);
 }
 
 function enableButton(formButton, objValidate) {
   formButton.classList.remove(objValidate.saveButtonInactiveClass);
   formButton.removeAttribute('disabled');
-  formButton.classList.add(objValidate.saveButtonActiveClass);
 }
 
 function toggleButtonState(formElement, inputList, objValidate) {
