@@ -1,4 +1,4 @@
-import { openPopup } from "./script.js";
+import { openPopup, openedPicture, popupCaption, picturePopup } from "./script.js";
 
 export default class Card {
   constructor(name, link, templateSelector) {
@@ -12,18 +12,16 @@ export default class Card {
     return cardTemplate;
   }
 
-  _likeBtnHandler(evt) {
-    evt.target.classList.toggle('photo-gallery__like-button_active');
+  _likeBtnHandler() {
+    this._buttonLike.classList.toggle('photo-gallery__like-button_active');
   }
 
-  _deleteCardHandler(evt) {
-    evt.target.closest('.photo-gallery__element').remove();
+  _deleteCardHandler() {
+    this._element.remove();
+    this._element = null;
   }
 
   _clickImageHandler() {
-    const picturePopup = document.querySelector('.popup_picture');
-    const openedPicture = picturePopup.querySelector('.popup__image');
-    const popupCaption = picturePopup.querySelector('.popup__caption');
     openedPicture.src = this._link;
     openedPicture.alt = this._name;
     popupCaption.textContent = this._name;
@@ -32,27 +30,29 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector('.photo-gallery__delete').addEventListener('click', (evt) => {
-      this._deleteCardHandler(evt);
+    this._buttonLike = this._element.querySelector('.photo-gallery__like-button');
+    this._galleryPicture = this._element.querySelector('.photo-gallery__picture');
+    this._buttonDelete = this._element.querySelector('.photo-gallery__delete');
+
+    this._buttonDelete.addEventListener('click', () => {
+      this._deleteCardHandler();
     });
   
-    this._element.querySelector('.photo-gallery__like-button').addEventListener('click', (evt) => {
-      this._likeBtnHandler(evt);
+    this._buttonLike.addEventListener('click', () => {
+      this._likeBtnHandler();
     });
   
-    this._element.querySelector('.photo-gallery__picture').addEventListener('click', () => {
+    this._galleryPicture.addEventListener('click', () => {
       this._clickImageHandler();
     });
   }
 
   createCard() {
     this._element = this._getCardTemplate();
-
     this._setEventListeners();
 
-    const galleryPicture = this._element.querySelector('.photo-gallery__picture');
-    galleryPicture.src = this._link;
-    galleryPicture.alt = this._name;
+    this._galleryPicture.src = this._link;
+    this._galleryPicture.alt = this._name;
     this._element.querySelector('.photo-gallery__text').textContent = this._name;
 
     return this._element;
