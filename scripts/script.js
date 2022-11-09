@@ -60,10 +60,14 @@ export const popupCaption = picturePopup.querySelector('.popup__caption');
 
 const photoGallery = document.querySelector('.photo-gallery');
 
+function generateCard(cardName, cardLink, templateSelector) {
+  const cardObj = new Card(cardName, cardLink, templateSelector);
+  return cardObj.createCard();
+}
+
 // Добавляем начальные карточки
 initialCards.forEach(function(card) {
-  const cardObj = new Card(card.name, card.link, '#photo-gallery__element');
-  photoGallery.append(cardObj.createCard());
+  photoGallery.append(generateCard(card.name, card.link, '#photo-gallery__element'));
 });
 
 
@@ -123,8 +127,7 @@ btnOpenCardPopup.addEventListener('click', function() {
 
 cardForm.addEventListener('submit', function(evt) {
     evt.preventDefault();
-    const cardObj = new Card(cardNameInput.value, cardLinkInput.value, '#photo-gallery__element');
-    photoGallery.prepend(cardObj.createCard());
+    photoGallery.prepend(generateCard(cardNameInput.value, cardLinkInput.value, '#photo-gallery__element'));
     closePopup(cardPopup);
 })
 
