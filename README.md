@@ -11,4 +11,3 @@
 
 :white_check_mark: Сборка проекта при помощи Webpack!
 
-[Ссылка на проект в GithubPages](https://donik0807.github.io/mesto)
