@@ -1,12 +1,12 @@
-import { popupValidate, initialCards } from "./utils/constants.js";
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import Popup from "./components/Popup.js";
-import PopupWithForm from "./components/PopupWithForm.js"
-import PopupWithImage from "./components/PopupWithImage.js"
-import Section from "./components/Seciton.js";
-import UserInfo from "./components/UserInfo.js";
-import './pages/index.css';
+import { popupValidate, initialCards } from "../utils/constants.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup.js";
+import PopupWithForm from "../components/PopupWithForm.js"
+import PopupWithImage from "../components/PopupWithImage.js"
+import Section from "../components/Seciton.js";
+import UserInfo from "../components/UserInfo.js";
+import './index.css';
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 const userInfo = new UserInfo('.profile__name', '.profile__status');
