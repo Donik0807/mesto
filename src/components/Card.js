@@ -1,10 +1,9 @@
-import { openPopup, openedPicture, popupCaption, picturePopup } from "./script.js";
-
 export default class Card {
-  constructor(name, link, templateSelector) {
+  constructor(name, link, templateSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getCardTemplate() {
@@ -21,14 +20,6 @@ export default class Card {
     this._element = null;
   }
 
-  _clickImageHandler() {
-    openedPicture.src = this._link;
-    openedPicture.alt = this._name;
-    popupCaption.textContent = this._name;
-
-    openPopup(picturePopup);
-  }
-
   _setEventListeners() {
     this._buttonLike = this._element.querySelector('.photo-gallery__like-button');
     this._galleryPicture = this._element.querySelector('.photo-gallery__picture');
@@ -43,7 +34,7 @@ export default class Card {
     });
   
     this._galleryPicture.addEventListener('click', () => {
-      this._clickImageHandler();
+      this._handleCardClick();
     });
   }
 

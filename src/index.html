@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
     <header class="header">
-        <img src="images/header__logo.svg" alt="Место" class="header__logo">
+        <img src="<%=require('./images/header__logo.svg')%>" alt="Место" class="header__logo">
     </header>
     <main class="content">
         <section class="profile">
-            <img src="images/profile-pic.jpg" alt="Изображение профиля" class="profile__avatar">
+            <img src="<%=require('./images/profile-pic.jpg')%>" alt="Изображение профиля" class="profile__avatar">
             <div class="profile__profile-info">
                 <div class="profile__row">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -28,7 +27,7 @@
         <section class="photo-gallery">
             <template id="photo-gallery__element">
                 <figure class="photo-gallery__element">
-                    <img src = "images/temple.jpg" alt="замок" class="photo-gallery__picture">
+                    <img src = "<%=require('./images/temple.jpg')%>" alt="замок" class="photo-gallery__picture">
                     <figcaption class="photo-gallery__caption">
                         <h2 class="photo-gallery__text"></h2>
                         <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
@@ -46,12 +45,12 @@
             <form class="popup__form" name="personal-info" novalidate>
                 <h3 class="popup__text">Редактировать профиль</h3>
                 <div class="popup__input-container">
-                    <input type="text" id="name-input" class="popup__text-input popup__text-input_type_name" placeholder="Имя" name="name" minlength="2" maxlength="40" required >
+                    <input type="text" id="name-input" class="popup__text-input popup__text-input_type_name" placeholder="Имя" name="name" minlength="2" maxlength="40" required value="Жак-Ив Кусто">
                     <span class="name-input-error popup__text-input-error"></span>
                 </div>
 
                 <div class="popup__input-container">
-                    <input type="text" id="about-input" class="popup__text-input popup__text-input_type_about" placeholder="О себе" name="about" minlength="2" maxlength="200" required>
+                    <input type="text" id="about-input" class="popup__text-input popup__text-input_type_about" placeholder="О себе" name="about" minlength="2" maxlength="200" required value="Исследователь океана">
                     <span class="about-input-error popup__text-input-error"></span>
                 </div>
                 
@@ -82,11 +81,10 @@
     </div>
     <div class="popup popup_picture">
         <div class="popup__container">
-            <img src="images/castle.jpg" alt="замок" class="popup__image">
+            <img src="<%=require('./images/castle.jpg')%>" alt="замок" class="popup__image">
             <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
             <p class="popup__caption"></p>
         </div>
     </div>
-    <script src="scripts/script.js" type="module"></script>
 </body>
 </html>
