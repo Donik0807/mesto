@@ -12,14 +12,17 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img src="<%=require('./images/profile-pic.jpg')%>" alt="Изображение профиля" class="profile__avatar">
+            <div class="profile__avatar-container">
+                <div class="profile__avatar-overlay"></div>
+                <img src="<%=require('./images/profile-pic.jpg')%>" alt="Изображение профиля" class="profile__avatar">
+            </div>
             <div class="profile__profile-info">
                 <div class="profile__row">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <h1 class="profile__name"></h1>
                     <button class="profile__edit-button button-animation" type="button" aria-label="Редактировать">
                     </button>
                 </div>
-                <p class="profile__status">Исследователь океана</p>
+                <p class="profile__status"></p>
             </div>
             <button class="profile__add-button button-animation" type="button" aria-label="Добавить">
             </button>
@@ -30,9 +33,12 @@
                     <img src = "<%=require('./images/temple.jpg')%>" alt="замок" class="photo-gallery__picture">
                     <figcaption class="photo-gallery__caption">
                         <h2 class="photo-gallery__text"></h2>
-                        <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
+                        <div class="photo-gallery__like-container">
+                            <button class="photo-gallery__like-button button-animation" type="button" aria-label="Понравилось"></button>
+                            <span class="photo-gallery__like-count">6</span>
+                        </div>
                     </figcaption>
-                    <button class="photo-gallery__delete button-animation" type="button" aria-label="Удалить"></button>
+                    <button class="photo-gallery__delete photo-gallery__delete_hidden button-animation" type="button" aria-label="Удалить"></button>
                 </figure>
             </template>      
         </section>
@@ -84,6 +90,26 @@
             <img src="<%=require('./images/castle.jpg')%>" alt="замок" class="popup__image">
             <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
             <p class="popup__caption"></p>
+        </div>
+    </div>
+    <div class="popup popup_delete">
+        <div class="popup__container popup__container_modal">
+            <h3 class="popup__text">Вы уверены?</h3>
+            <button class="popup__save-button button-animation" type="button" aria-label="Удалить">Да</button>
+            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
+        </div>
+    </div>
+    <div class="popup popup_avatar">
+        <div class="popup__container popup__container_modal">
+            <form class="popup__form" name="avatar-info" novalidate>
+                <h3 class="popup__text">Обновить аватар</h3>
+                <div class="popup__input-container">
+                    <input type="url" id="avatar-input" class="popup__text-input popup__text-input_type_about" placeholder="Ссылка на картинку" name="link" required>
+                    <span class="avatar-input-error popup__text-input-error"></span>
+                </div>
+                <button class="popup__save-button button-animation" type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
+            <button class="popup__close-button button-animation" type="button" aria-label="Закрыть"></button>
         </div>
     </div>
 </body>

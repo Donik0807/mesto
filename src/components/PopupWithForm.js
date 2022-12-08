@@ -7,6 +7,7 @@ export default class PopupWithForm extends Popup {
     this._popupForm = this._popup.querySelector('.popup__form');
     this._inputsList = this._popup.querySelectorAll('.popup__text-input');
     this._openPopupHandler = openPopupHandler;
+    this._submitBtn = this._popup.querySelector('.popup__save-button');
   }
 
   getInputValues() {
@@ -32,7 +33,11 @@ export default class PopupWithForm extends Popup {
   }
 
   open() {
-    this._openPopupHandler();
     super.open();
+    this._openPopupHandler();
+  }
+
+  setMessage(message) {
+    this._submitBtn.textContent = message;
   }
 }
