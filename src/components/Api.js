@@ -3,17 +3,20 @@ export default class Api {
     this._options = options;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  }
+
   getUser() {
     return fetch(`${this._options.baseUrl}/users/me`, {
       headers: {
         authorization: this._options.headers.authorization
       }
-    })
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+    }).then(res => {
+      return this._checkResponse(res);
     })
   }
 
@@ -30,10 +33,7 @@ export default class Api {
       })
     })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
 
@@ -44,10 +44,7 @@ export default class Api {
       }
     })
     .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
 
@@ -63,10 +60,7 @@ export default class Api {
         link: card.link
       })
     }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
   
@@ -86,10 +80,7 @@ export default class Api {
         authorization: this._options.headers.authorization
       }
     }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
 
@@ -100,10 +91,7 @@ export default class Api {
         authorization: this._options.headers.authorization
       }
     }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
 
@@ -116,10 +104,7 @@ export default class Api {
       },
       body: JSON.stringify({avatar: avatar})
     }).then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
+      return this._checkResponse(res);
     })
   }
 }

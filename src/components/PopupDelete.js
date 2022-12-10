@@ -11,7 +11,6 @@ export default class PopupDelete extends Popup {
     this._deleteButton = this._popup.querySelector('.popup__save-button');
     this._deleteButton.addEventListener('click', () => {
       this._deleteHandler();
-      super.close();
     })
   }
 

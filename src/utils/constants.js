@@ -1,5 +1,3 @@
-import Api from "../components/Api";
-
 export const popupValidate = {
   formClass: 'popup__form',
   textInputClass: 'popup__text-input',

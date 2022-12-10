@@ -1,9 +1,8 @@
 export default class UserInfo {
-  constructor(nameSelector, statusSelector, avatarSelector, avatarClickHandler) {
+  constructor(nameSelector, statusSelector, avatarSelector) {
     this._nameElement = document.querySelector(nameSelector);
     this._statusElement = document.querySelector(statusSelector); 
     this._avatarElement = document.querySelector(avatarSelector);
-    this._avatarClickHandler = avatarClickHandler;
   }
 
   getUserInfo() {
@@ -20,11 +19,5 @@ export default class UserInfo {
 
   setUserAvatar(link) {
     this._avatarElement.src = link;
-  }
-
-  setEventListeners() {
-    this._avatarElement.closest('.profile__avatar-container').addEventListener('click', () => {
-      this._avatarClickHandler();
-    })
   }
 }
